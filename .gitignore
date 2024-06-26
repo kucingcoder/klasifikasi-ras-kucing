@@ -2,3 +2,4 @@ Images/*.png
 Images/*.jpg
 Images/*.jpeg
 Models/*.h5
+Models/*.onnx
