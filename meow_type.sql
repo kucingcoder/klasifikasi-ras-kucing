@@ -229,7 +229,7 @@ CREATE TABLE `pengguna` (
 CREATE TABLE `riwayat` (
   `id` int(11) NOT NULL,
   `pengguna_id` int(11) NOT NULL,
-  `foto` char(36) NOT NULL,
+  `foto` char(37) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
