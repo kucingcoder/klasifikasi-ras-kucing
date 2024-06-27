@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "f0eba373-43d9-4e64-b940-7d5df712b3ef",
+		"name": "Meow Type",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28820299"
+	},
+	"item": [
+		{
+			"name": "Otentikasi",
+			"item": [
+				{
+					"name": "Daftar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "nama@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "sandi",
+									"value": "katasandi123",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Nama Saya",
+									"type": "text"
+								},
+								{
+									"key": "jenis_kelamin",
+									"value": "laki - laki",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2000-06-11",
+									"type": "text"
+								},
+								{
+									"key": "negara",
+									"value": "indonesia",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://meow-type.serverku.my.id/daftar"
+					},
+					"response": []
+				},
+				{
+					"name": "Masuk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "nama@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "sandi",
+									"value": "katasandi123",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://meow-type.serverku.my.id/masuk"
+					},
+					"response": []
+				},
+				{
+					"name": "Keluar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://meow-type.serverku.my.id/keluar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pengguna",
+			"item": [
+				{
+					"name": "Info Data Diri",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://meow-type.serverku.my.id/info-data-diri"
+					},
+					"response": []
+				},
+				{
+					"name": "Perbaharui Data Diri",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "nama@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Nama Saya",
+									"type": "text"
+								},
+								{
+									"key": "jenis_kelamin",
+									"value": "perempuan",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2010-08-23",
+									"type": "text"
+								},
+								{
+									"key": "negara",
+									"value": "malaysia",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://meow-type.serverku.my.id/perbaharui-data-diri"
+					},
+					"response": []
+				},
+				{
+					"name": "Daftar Riwayat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://meow-type.serverku.my.id/daftar-riwayat"
+					},
+					"response": []
+				},
+				{
+					"name": "Info Kucing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meow-type.serverku.my.id/info-kucing?jenis=Turkish Anggora",
+							"protocol": "https",
+							"host": [
+								"meow-type",
+								"serverku",
+								"my",
+								"id"
+							],
+							"path": [
+								"info-kucing"
+							],
+							"query": [
+								{
+									"key": "jenis",
+									"value": "Turkish Anggora"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Klasifikasi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "postman-cloud:///1ef2f1c6-f21a-4380-b311-d1d681ed1ae4"
+								}
+							]
+						},
+						"url": "https://meow-type.serverku.my.id/klasifikasi"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
