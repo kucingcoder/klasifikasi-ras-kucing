@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "mematikan layanan api meow type"
+systemctl stop meow-type-api
+
+echo "menghapus layanan dari daftar booting"
+systemctl disable meow-type-api
+
+echo "menghapus layanan api meow type"
+systemctl daemon-reload

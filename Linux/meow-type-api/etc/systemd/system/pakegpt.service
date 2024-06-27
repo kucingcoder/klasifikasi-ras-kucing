@@ -1,0 +1,15 @@
+[Unit]
+Description=Backend aplikasi meow type
+After=mysql.service
+StartLimitBurst=3
+StartLimitIntervalSec=5
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/meow-type-api
+ExecStart=/bin/meow-type-api
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

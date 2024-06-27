@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "menambahkan layanan api meow type"
+systemctl daemon-reload
+
+echo "menambahkan layanan ke daftar booting"
+systemctl enable meow-type-api
+
+echo "instalasi api meow type"

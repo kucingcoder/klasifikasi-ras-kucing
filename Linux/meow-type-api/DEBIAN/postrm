@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "menghapus file & folder terkait layanan"
+rm -r /etc/meow-type-api
+
+echo "layanan api meow type berhasil dihapus"
