@@ -1,5 +1,2 @@
 #!/bin/bash
-echo "menghapus file & folder terkait layanan"
-rm -r /etc/klasifikasi-ras-kucing-api
-
 echo "layanan klasifikasi ras kucing berhasil dihapus"
