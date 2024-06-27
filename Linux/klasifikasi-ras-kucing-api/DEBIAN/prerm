@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "mematikan layanan api klasifikasi ras kucing"
+systemctl stop klasifikasi-ras-kucing-api
+
+echo "menghapus layanan dari daftar booting"
+systemctl disable klasifikasi-ras-kucing-api
+
+echo "menghapus layanan api klasifikasi ras kucing"
+systemctl daemon-reload

@@ -1,0 +1,6 @@
+Package: klasifikasi-ras-kucing-api
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Felisware <dev@felisware.com>
+Depends:
+Description: Api klasifikasi ras kucing

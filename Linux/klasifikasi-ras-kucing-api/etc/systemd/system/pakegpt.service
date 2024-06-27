@@ -1,0 +1,15 @@
+[Unit]
+Description=Api klasifikasi ras kucing
+After=mysql.service
+StartLimitBurst=3
+StartLimitIntervalSec=5
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/meow-type-api
+ExecStart=/usr/bin/python3 /bin/klasifikasi-ras-kucing-api
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

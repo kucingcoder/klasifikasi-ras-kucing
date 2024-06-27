@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "menambahkan layanan api klasifikasi ras kucing"
+systemctl daemon-reload
+
+echo "menambahkan layanan ke daftar booting"
+systemctl enable klasifikasi-ras-kucing-api
+
+echo "instalasi api klasifikasi ras kucing"
