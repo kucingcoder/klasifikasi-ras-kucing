@@ -247,7 +247,7 @@ func main() {
 		session := sessions.Default(c)
 		id := session.Get("id")
 
-		rows, err := db.Query("SELECT riwayat.foto, kucing.jenis, riwayat.waktu FROM riwayat INNER JOIN dna ON riwayat.id = dna.riwayat_id INNER JOIN kucing ON dna.kucing_id = kucing.id WHERE riwayat.pengguna_id = ?", id)
+		rows, err := db.Query("SELECT riwayat.foto, kucing.jenis, riwayat.waktu FROM riwayat INNER JOIN dna ON riwayat.id = dna.riwayat_id INNER JOIN kucing ON dna.kucing_id = kucing.id WHERE riwayat.pengguna_id = ? ORDER BY riwayat.waktu DESC LIMIT 5", id)
 
 		if err != nil {
 			var emptyArray []interface{}
@@ -383,6 +383,15 @@ func main() {
 			c.JSON(400, gin.H{
 				"status":  400,
 				"message": "Data tidak valid",
+				"data":    nil,
+			})
+			return
+		}
+
+		if bytes.Contains(body, []byte("lain")) {
+			c.JSON(400, gin.H{
+				"status":  400,
+				"message": "Tidak dapat menemukan kucing dalam gambarmu",
 				"data":    nil,
 			})
 			return
