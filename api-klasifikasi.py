@@ -50,7 +50,7 @@ def hello():
 
         objek = model_binary.predict(img_array_bin)
 
-        if objek[0] >= 0.5:
+        if objek[0] <= 0.5:
             img_cat = tf.keras.utils.load_img(lokasi, target_size=(300, 300))
             img_array_cat = tf.keras.utils.img_to_array(img_cat)
             img_array_cat = tf.expand_dims(img_array_cat, 0)
