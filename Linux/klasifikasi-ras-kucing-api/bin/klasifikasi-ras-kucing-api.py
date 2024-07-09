@@ -1,9 +1,11 @@
 import tensorflow as tf
 from flask import Flask, request
 
-model = tf.keras.models.load_model('Models/21062024.h5')
+model_binary = tf.keras.models.load_model('Models/binary-20240709101646.h5')
 
-daftar_kelas = [
+model_categorical = tf.keras.models.load_model('Models/categorical-21062024.h5')
+
+jenis_kucing = [
     'Abyssinian',
     'American Curl',
     'American Shorthair',
@@ -38,17 +40,30 @@ app = Flask(__name__)
 @app.route('/klasifikasi')
 def hello():
     try:
+        hasil = ''
+
         lokasi = 'Images/' + request.args.get('lokasi')
-        img = tf.keras.utils.load_img(lokasi, target_size=(300, 300))
-        img_array = tf.keras.utils.img_to_array(img)
-        img_array = tf.expand_dims(img_array, 0)
-        img_array /= 255
+        img_bin = tf.keras.utils.load_img(lokasi, target_size=(85, 85))
+        img_array_bin = tf.keras.utils.img_to_array(img_bin)
+        img_array_bin = tf.expand_dims(img_array_bin, 0)
+        img_array_bin /= 255
 
-        predictions = model.predict(img_array)
-        score = tf.nn.softmax(predictions[0])
+        objek = model_binary.predict(img_array_bin)
 
-        jenis = daftar_kelas[tf.argmax(score)]
-        return jenis
+        if objek[0] >= 0.5:
+            img_cat = tf.keras.utils.load_img(lokasi, target_size=(300, 300))
+            img_array_cat = tf.keras.utils.img_to_array(img_cat)
+            img_array_cat = tf.expand_dims(img_array_cat, 0)
+            img_array_cat /= 255
+
+            predictions = model_categorical.predict(img_array_cat)
+            score = tf.nn.softmax(predictions[0])
+
+            hasil = jenis_kucing[tf.argmax(score)]
+        else:
+            hasil = 'lain'
+
+        return hasil
     except:
         return 'gagal'
     
